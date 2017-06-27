@@ -1,6 +1,6 @@
 # 博客系统案例
 
-## 后台功能需求分析
+## (1)、后台功能需求分析
 
     一、登录
     二、分类管理
@@ -22,3 +22,14 @@
         1).所有评论
         2).查看指定博文的评论
       2.删除评论
+##  (2)、技术框架
+
+    NodeJS
+    Express
+    Mongodb
+    第三方模块&&中间件
+      bodyParser:解析post请求数据
+      cookies:读/写cookie
+      swig:模板解析引擎
+      mongoose:操作mongodb数据
+      markdown:markdown语法解析生成模块
