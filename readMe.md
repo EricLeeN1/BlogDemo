@@ -22,7 +22,8 @@
         1).所有评论
         2).查看指定博文的评论
       2.删除评论
-##  (2)、技术框架
+
+## (2)、技术框架
 
     NodeJS
     Express
@@ -33,3 +34,15 @@
       swig:模板解析引擎
       mongoose:操作mongodb数据
       markdown:markdown语法解析生成模块
+
+## 项目结构分析
+
+### 目录结构
+
+    db--数据库存储目录
+    models--数据库模型文件目录
+    public--公共文件目录(css/js/images...)
+    routers--路由文件目录
+    schemas--数据库结构文件(schemas)目录
+    views--模板视图文件目录
+    app.js--应用(启动)入口文件
