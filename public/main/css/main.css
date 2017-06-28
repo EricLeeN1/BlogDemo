@@ -1,0 +1,13 @@
+.panel .page-header{
+    margin-top: -9px;
+}
+.panel{
+    padding: 20px;
+    box-sizing: border-box;
+}
+.panel .page-header{
+    text-align: center;
+}
+.panel .article-info span{
+    color: #2aabd2;
+}
