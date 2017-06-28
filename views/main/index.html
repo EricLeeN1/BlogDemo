@@ -272,58 +272,71 @@
         </div>
     </div>
     <aside class="right col-lg-3">
-        <form id="loginForm" action="" class="col-lg-10 col-lg-offset-1">
-            <h4 class="text-center">登录<small>Sign in</small></h4>
-            <label for="user" class="input-group">
-                <span class="input-group-addon" id="user-logo"><span class="glyphicon glyphicon-user"></span></span>
-                <input type="text" id="user" class="form-control" placeholder="Username" aria-describedby="user-logo">
-            </label>
-            <label for="pass" class="input-group">
-                <span class="input-group-addon" id="pass-logo"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password" id="pass" class="form-control" placeholder="Password"
-                       aria-describedby="pass-logo">
-            </label>
-            <label for="email" class="input-group">
+        <div class="well well-lg clearfix">
+            <form id="loginForm" action="" class="col-lg-10 col-lg-offset-1">
+                <h4 class="text-center">登录<small>Sign in</small></h4>
+                <label for="user" class="input-group">
+                    <span class="input-group-addon" id="user-logo"><span class="glyphicon glyphicon-user"></span></span>
+                    <input type="text" id="user" class="form-control" placeholder="Username" aria-describedby="user-logo">
+                </label>
+                <label for="pass" class="input-group">
+                    <span class="input-group-addon" id="pass-logo"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input type="password" id="pass" class="form-control" placeholder="Password"
+                           aria-describedby="pass-logo">
+                </label>
+                <label for="email" class="input-group">
                 <span class="input-group-addon" id="email-logo"><span
                         class="glyphicon glyphicon-envelope"></span></span>
-                <input type="email" id="email" class="form-control" placeholder="Email" aria-describedby="email-logo">
-            </label>
-            <label for="phone" class="input-group">
-                <span class="input-group-addon" id="phone-logo"><span class="glyphicon glyphicon-phone"></span></span>
-                <input type="text" id="phone" class="form-control" placeholder="Phone" aria-describedby="phone-logo">
-            </label>
-            <div class="text-center">
-                <p class="">还没有账号？<a href="#" class="text-info">去注册？</a></p>
-                <button class="btn btn-info" type="button">Go!</button>
-            </div>
-        </form>
-        <form id="registerForm" action="" class="col-lg-10 col-lg-offset-1 hide">
-            <h4 class="text-center">注册<small>Register</small></h4>
-            <label for="user" class="input-group">
-                <span class="input-group-addon" id="user-logo-reg"><span class="glyphicon glyphicon-user"></span></span>
-                <input type="text" id="user-reg" class="form-control" placeholder="Username" aria-describedby="user-logo-reg">
-            </label>
-            <label for="pass" class="input-group">
-                <span class="input-group-addon" id="pass-logo-reg"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password" id="pass-reg" class="form-control" placeholder="Password"
-                       aria-describedby="pass-logo-reg">
-            </label>
-            <label for="email" class="input-group">
+                    <input type="email" id="email" class="form-control" placeholder="Email" aria-describedby="email-logo">
+                </label>
+                <label for="phone" class="input-group">
+                    <span class="input-group-addon" id="phone-logo"><span class="glyphicon glyphicon-phone"></span></span>
+                    <input type="text" id="phone" class="form-control" placeholder="Phone" aria-describedby="phone-logo">
+                </label>
+                <div class="text-center">
+                    <p class="">还没有账号？<a href="javascript:;" class="text-info">去注册？</a></p>
+                    <button class="btn btn-info" type="button">Login in!</button>
+                </div>
+            </form>
+            <form id="registerForm" action="" style="display: none;" class="col-lg-10 col-lg-offset-1">
+                <h4 class="text-center">注册<small>Register</small></h4>
+                <label for="user-reg" class="input-group">
+                    <span class="input-group-addon" id="user-logo-reg"><span class="glyphicon glyphicon-user"></span></span>
+                    <input name="user-reg" type="text" id="user-reg" class="form-control" placeholder="Username" aria-describedby="user-logo-reg">
+                </label>
+                <label for="pass-reg" class="input-group">
+                    <span class="input-group-addon" id="pass-logo-reg"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input name="pass-reg" type="password" id="pass-reg" class="form-control" placeholder="Password"
+                           aria-describedby="pass-logo-reg">
+                </label>
+                <label for="pass2-reg" class="input-group">
+                    <span class="input-group-addon" id="pass2-logo-reg"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input name="pass2-reg" type="password" id="pass2-reg" class="form-control" placeholder="Password Again"
+                           aria-describedby="pass2-logo-reg">
+                </label>
+                <label for="email-reg" class="input-group">
                 <span class="input-group-addon" id="email-logo-reg"><span
                         class="glyphicon glyphicon-envelope"></span></span>
-                <input type="email" id="email-reg" class="form-control" placeholder="Email" aria-describedby="email-logo-reg">
-            </label>
-            <label for="phone" class="input-group">
-                <span class="input-group-addon" id="phone-logo-reg"><span class="glyphicon glyphicon-phone"></span></span>
-                <input type="text" id="phone-reg" class="form-control" placeholder="Phone" aria-describedby="phone-logo-reg">
-            </label>
-            <div class="text-center">
-                <p class="">已有账号？<a href="#" class="text-info">去登录？</a></p>
-                <button class="btn btn-info" type="button">Go!</button>
-            </div>
-        </form>
+                    <input name="email-reg" type="email" id="email-reg" class="form-control" placeholder="Email" aria-describedby="email-logo-reg">
+                </label>
+                <label for="phone-reg" class="input-group">
+                    <span class="input-group-addon" id="phone-logo-reg"><span class="glyphicon glyphicon-phone"></span></span>
+                    <input name="phone-reg" type="text" id="phone-reg" class="form-control" placeholder="Phone" aria-describedby="phone-logo-reg">
+                </label>
+                <div class="text-center">
+                    <p class="">已有账号？<a href="javascript:;" class="text-info">去登录？</a></p>
+                    <button class="btn btn-info" type="button">Register Now!</button>
+                </div>
+            </form>
+        </div>
         <div class="well well-lg">
-            Another News!
+            <h4 class="text-center">社区<small>Blog</small></h4>
+            <ul class="list-group">
+                <li class="list-group-item">社区博客001</li>
+                <li class="list-group-item">社区博客002</li>
+                <li class="list-group-item">社区博客003</li>
+                <li class="list-group-item">社区博客004</li>
+            </ul>
         </div>
     </aside>
 </main>
