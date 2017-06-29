@@ -62,18 +62,25 @@ $(function() {
                     //登陆成功
                     $loginForm.find('h4.text-center').removeClass('text-danger').addClass('text-success').html(result.msg);
                     //显示登录用户的信息
-                    setTimeout(function() {
-                        $registerForm.hide();
-                        $loginForm.hide();
-                        $userInfo.attr('data-id', result.userInfo._id)
-                        $userInfo.find('h2').html('<small>用户名称:' + result.userInfo.username + '</small>');
-                        $userInfo.find('h2+p').html('你好,欢迎光临我的博客!');
-                        $userInfo.show();
-                    }, 1000);
+                    if (!result.msgcode) {
+                        //登录成功
+                        window.location.reload();
+                    }
                 }else {
                     $loginForm.find('h4.text-center').removeClass('text-success').addClass('text-danger').html(result.msg);
                 }
             }
         });
     });
+    //退出
+    $("#login-out").on('click',function () {
+        $.ajax({
+            url:'/api/user/logout',
+            success:function (result) {
+                if (!result.code) {
+                    window.location.reload();
+                }
+            }
+        })
+    })
 });

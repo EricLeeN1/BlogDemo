@@ -42,7 +42,19 @@ app.use(bodyParser.urlencoded({
 //设置cookie
 app.use(function (req,res,next) {
     req.cookies = new Cookies(req,res);
-})
+
+    //解析登录用户的cookies信息
+    req.userInfo={};
+    if (req.cookies.get('userInfo')) {
+        try{
+            req.userInfo =JSON.parse(req.cookies.get('userInfo'));
+        }catch(e){
+
+        }
+    }
+    console.log(req.cookies.get('userInfo'));
+    next();
+});
 /**
  * 根据不同的功能划分模块
  */

@@ -268,6 +268,15 @@
         </div>
         <aside class="right col-lg-4">
             <div class="well well-lg clearfix">
+                {% if userInfo._id %}
+                <div id="userInfo" class="col-lg-12 jumbotron">
+                    <h2><small>用户名称:</small>{{userInfo.username}}</h2>
+                    <p>你好欢迎光临我的博客！</p>
+                    <p class="clearfix">
+                        <a id="login-out" href="#" role="button" class="btn btn-primary btn-sm pull-right">点击退出</a>
+                    </p>
+                </div>
+                {% else %}
                 <form id="loginForm" action="" class="col-lg-10 col-lg-offset-1">
                     <h3 class="text-center">登录<small>Sign in</small></h3>
                     <label for="user" class="input-group">
@@ -277,11 +286,11 @@
                     <label for="pass" class="input-group">
                         <span class="input-group-addon" id="pass-logo"><span class="glyphicon glyphicon-lock"></span></span>
                         <input name="pass" type="password" id="pass" class="form-control" placeholder="Password"
-                           aria-describedby="pass-logo">
+                               aria-describedby="pass-logo">
                     </label>
                     <label for="email" class="input-group">
                         <span class="input-group-addon" id="email-logo"><span
-                        class="glyphicon glyphicon-envelope"></span></span>
+                                class="glyphicon glyphicon-envelope"></span></span>
                         <input name="email" type="email" id="email" class="form-control" placeholder="Email" aria-describedby="email-logo">
                     </label>
                     <label for="phone" class="input-group">
@@ -294,6 +303,7 @@
                         <h4 class="text-center"></h4>
                     </div>
                 </form>
+                {% endif %}
                 <form id="registerForm" action="" style="display: none;" class="col-lg-10 col-lg-offset-1">
                     <h3 class="text-center">注册<small>Register</small></h3>
                     <label for="user-reg" class="input-group">
@@ -303,12 +313,12 @@
                     <label for="pass-reg" class="input-group">
                         <span class="input-group-addon" id="pass-logo-reg"><span class="glyphicon glyphicon-lock"></span></span>
                         <input name="pass-reg" type="password" id="pass-reg" class="form-control" placeholder="Password"
-                           aria-describedby="pass-logo-reg">
+                               aria-describedby="pass-logo-reg">
                     </label>
                     <label for="pass2-reg" class="input-group">
                         <span class="input-group-addon" id="pass2-logo-reg"><span class="glyphicon glyphicon-lock"></span></span>
                         <input name="pass2-reg" type="password" id="pass2-reg" class="form-control" placeholder="Password Again"
-                           aria-describedby="pass2-logo-reg">
+                               aria-describedby="pass2-logo-reg">
                     </label>
                     <!--<label for="email-reg" class="input-group">
                         <span class="input-group-addon" id="email-logo-reg"><span
@@ -325,13 +335,6 @@
                         <h4 class="text-center"></h4>
                     </div>
                 </form>
-                <div id="userInfo" class="col-lg-12 jumbotron" style="display: none;">
-                    <h2><small>用户名称:</small>hello Eric</h2>
-                    <p>签名设置</p>
-                    <p class="clearfix">
-                        <a id="login-out" href="#" role="button" class="btn btn-primary btn-sm pull-right">点击退出</a>
-                    </p>
-                </div>
             </div>
             <div class="well well-lg">
                 <h4 class="text-center">社区<small>Blog</small></h4>

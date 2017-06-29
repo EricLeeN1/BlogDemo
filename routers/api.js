@@ -129,5 +129,13 @@ router.post('/user/login', function(req, res, next) {
         res.json(responseData);
         return;
     })
-})
+});
+/*
+* 退出
+* */
+router.get('/user/logout',function (req,res) {
+    req.cookies.set('userInfo',null);
+    res.json(responseData);
+});
+
 module.exports = router;
