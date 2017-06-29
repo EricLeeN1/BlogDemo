@@ -3,7 +3,7 @@ const router = express.Router();
 
 //统一返回格式
 var responseData;
-router.use(function (req, res, next) {
+router.use(function(req, res, next) {
     responseData = {
         msgcode: 0,
         msg: ''
@@ -22,7 +22,7 @@ router.use(function (req, res, next) {
  *   1.用户名是否已经被注册
  *      数据库查询
  * */
-router.post('/user/register', function (req, res, next) {
+router.post('/user/register', function(req, res, next) {
     // res.send('API - User');
     // console.log(req.body);
     const username = req.body.username;
