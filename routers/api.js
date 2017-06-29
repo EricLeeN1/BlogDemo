@@ -93,4 +93,37 @@ router.post('/user/register', function(req, res, next) {
         res.json(responseData);
     });
 });
+/**
+ * 登录
+ */
+router.post('/user/login', function(req, res, next) {
+    var username = req.body.username;
+    var password = req.body.password;
+    if (username == '' || password == '') {
+        responseData.msgcode = 1;
+        responseData.msg = '用户名或密码不能为空';
+        res.json(responseData);
+        return;
+    }
+    //数据库中查询用户名和密码是否存在，如果存在登录成功，
+    User.findOne({
+        username: username,
+        password: password
+    }).then(function(userInfo) {
+        if (!userInfo) {
+            responseData.msgcode = 2;
+            responseData.msg = '用户名或密码错误';
+            res.json(responseData);
+            return;
+        }
+        //用户名和密码是正确的
+        responseData.msg = '登录成功';
+        responseData.userInfo = {
+            _id: userInfo._id,
+            username: username
+        }
+        res.json(responseData);
+        return;
+    })
+})
 module.exports = router;
