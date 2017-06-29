@@ -1,14 +1,14 @@
 // 应用程序的启动(入口)文件
 //加载express模块
-const express = require('express');
+var express = require('express');
 //加载模板处理模块
-const swig = require('swig');
+var swig = require('swig');
 //加载数据库模块
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 //加载body-parser,用来处理post提交过来的数据
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 //创建app应用=>NodeJS http.createserver();
-const app = express();
+var app = express();
 
 /**
  * 设置静态文件托管目录
@@ -34,17 +34,19 @@ swig.setDefaults({ cache: false });
 
 //body-parser设置
 app.use(bodyParser.urlencoded({
-    extended:true
+    extended: true
 }));
 /**
  * 根据不同的功能划分模块
  */
-// app.use('/admin', require('./routers/admin'));
+app.use('/admin', require('./routers/admin'));
 app.use('/api', require('./routers/api'));
 app.use('/', require('./routers/main'));
 
 //连接数据库
-mongoose.connect('mongodb://localhost:27018/blog', function(err) {
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost:27018/blog', { useMongoClient: false }, function(err) {
     if (err) {
         console.log('数据库连接失败！');
     } else {

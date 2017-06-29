@@ -1,7 +1,7 @@
-// const express = require('express');
-// const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
-// // router.get('/user', (req, res, next) => {
-// //     res.send('ADMIN - User');
-// // });
-// module.exports = router;
+// router.get('/user', (req, res, next) => {
+//     res.send('ADMIN - User');
+// });
+module.exports = router;
