@@ -121,7 +121,11 @@ router.post('/user/login', function(req, res, next) {
         responseData.userInfo = {
             _id: userInfo._id,
             username: username
-        }
+        };
+        req.cookies.set('userInfo',JSON.stringify({
+            _id: userInfo._id,
+            username: username
+        }));
         res.json(responseData);
         return;
     })

@@ -58,10 +58,9 @@ $(function() {
             dataType: 'json',
             success: function(result) {
                 console.log(result);
-                if (!result.code) {
+                if (!result.msgcode) {
                     //登陆成功
                     $loginForm.find('h4.text-center').removeClass('text-danger').addClass('text-success').html(result.msg);
-
                     //显示登录用户的信息
                     setTimeout(function() {
                         $registerForm.hide();
@@ -71,8 +70,9 @@ $(function() {
                         $userInfo.find('h2+p').html('你好,欢迎光临我的博客!');
                         $userInfo.show();
                     }, 1000);
+                }else {
+                    $loginForm.find('h4.text-center').removeClass('text-success').addClass('text-danger').html(result.msg);
                 }
-
             }
         });
     });
