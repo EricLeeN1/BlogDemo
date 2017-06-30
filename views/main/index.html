@@ -271,7 +271,14 @@
                 {% if userInfo._id %}
                 <div id="userInfo" class="col-lg-12 jumbotron">
                     <h2><small>用户名称:</small>{{userInfo.username}}</h2>
+                    {% if userInfo.isAdmin %}
+                    <p>
+                        <small>你好管理员</small>
+                        <a href="/admin" class="text-danger">进入管理</a>
+                    </p>
+                    {% else %}
                     <p>你好欢迎光临我的博客！</p>
+                    {% endif %}
                     <p class="clearfix">
                         <a id="login-out" href="#" role="button" class="btn btn-primary btn-sm pull-right">点击退出</a>
                     </p>

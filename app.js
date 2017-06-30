@@ -13,6 +13,8 @@ var Cookies = require('cookies');
 //创建app应用=>NodeJS http.createserver();
 var app = express();
 
+var User = require('./models/User');
+
 /**
  * 设置静态文件托管目录
  *  app.use('/public',express.static(__dirname+'/public'));
@@ -40,20 +42,26 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 //设置cookie
-app.use(function (req,res,next) {
-    req.cookies = new Cookies(req,res);
+app.use(function(req, res, next) {
+    req.cookies = new Cookies(req, res);
 
     //解析登录用户的cookies信息
-    req.userInfo={};
+    req.userInfo = {};
     if (req.cookies.get('userInfo')) {
-        try{
-            req.userInfo =JSON.parse(req.cookies.get('userInfo'));
-        }catch(e){
+        try {
+            req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+            //获取当前登录用户的类型,是否是管理员
+            User.findById(req.userInfo._id).then(
+                function(userInfo) {
+                    req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+                    next();
+                })
+        } catch (e) {
 
         }
+    } else {
+        next();
     }
-    console.log(req.cookies.get('userInfo'));
-    next();
 });
 /**
  * 根据不同的功能划分模块
