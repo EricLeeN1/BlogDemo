@@ -30,76 +30,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Web
-                        <span class="caret"></span>
-                    </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Html5</a></li>
-                            <li><a href="#">Css3</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                            <li><a href="#">NodeJS</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Canvas</a></li>
-                            <!--<li><a href="#">Vue</a></li>-->
-                            <!--<li><a href="#">Bootstrap</a></li>-->
-                            <!--<li><a href="#">WeChat</a></li>-->
-                            <!--<li><a href="#">Mini Program</a></li>-->
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        UI
-                        <span class="caret"></span>
-                    </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">PhotoShop</a></li>
-                            <li><a href="#">Illustrator</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Axure</a></li>
-                            <li><a href="#">Flash</a></li>
-                            <li><a href="#">Fireworks</a></li>
-                            <!--<li><a href="#">Vue</a></li>-->
-                            <!--<li><a href="#">Bootstrap</a></li>-->
-                            <!--<li><a href="#">WeChat</a></li>-->
-                            <!--<li><a href="#">Mini Program</a></li>-->
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        Html5
-                    </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        Css3
-                    </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        JavaScript
-                    </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        NodeJS
-                    </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        Vue2Js
-                    </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        Angular2JS
-                    </a>
-                    </li>
+                    {%for category in categories%}
+                    <li><a href="#">{{category.name}}</a></li>
+                    {%endfor%}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

@@ -68,7 +68,7 @@ router.get('/user', function(req, res) {
  */
 router.get('/category', function(req, res) {
     var page = Number(req.query.page || 1);
-    var limit = 4;
+    var limit = 10;
 
     var pages = 0;
     Category.count().then(function(count) {
@@ -80,8 +80,10 @@ router.get('/category', function(req, res) {
         page = Math.max(page, 1);
 
         var skip = (page - 1) * limit;
-
-        Category.find().limit(limit).skip(skip).then(function(categories) {
+        /*
+        1：升序
+        -1：降序*/
+        Category.find().sort({_id:-1}).limit(limit).skip(skip).then(function(categories) {
             // console.log(users);
             res.render('admin/category_index', {
                 userInfo: req.userInfo,
