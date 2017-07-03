@@ -123,7 +123,7 @@ router.post('/user/login', function(req, res, next) {
             _id: userInfo._id,
             username: username
         };
-        req.cookies.set('userInfo',JSON.stringify({
+        req.cookies.set('userInfo', JSON.stringify({
             _id: userInfo._id,
             username: username
         }));
@@ -132,29 +132,42 @@ router.post('/user/login', function(req, res, next) {
     })
 });
 /*
-* 退出
-* */
-router.get('/user/logout',function (req,res) {
-    req.cookies.set('userInfo',null);
+ * 退出
+ * */
+router.get('/user/logout', function(req, res) {
+    req.cookies.set('userInfo', null);
     res.json(responseData);
 });
+
+/**
+ * 获取指定文章的所有评论
+ */
+router.get('/comment', function(req, res) {
+    var contentId = req.query.contentid || '';
+    Content.findOne({
+        _id: contentId
+    }).then(function(content) {
+        responseData.data = content.comments;
+        res.json(responseData);
+    });
+});
 /*
-* 评论提交
-* */
-router.post('/comment/post',function (req,res) {
-    var contentId = req.body.contentid||'';
-    var postData={
-        username:req.userInfo.username,
-        postTime:new Date(),
-        content:req.body.content
+ * 评论提交
+ * */
+router.post('/comment/post', function(req, res) {
+    var contentId = req.body.contentid || '';
+    var postData = {
+        username: req.userInfo.username,
+        postTime: new Date(),
+        content: req.body.content
     };
     //查询当前这篇文章的信息
     Content.findOne({
         _id: contentId
-    }).then(function (content) {
+    }).then(function(content) {
         content.comments.push(postData);
         return content.save();
-    }).then(function (newContent) {
+    }).then(function(newContent) {
         console.log(newContent);
         responseData.message = '评价成功';
         responseData.data = newContent;

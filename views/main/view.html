@@ -1,5 +1,4 @@
-{%extends 'layout.html'%}
-{%block content%}
+{%extends 'layout.html'%} {%block content%}
 <div class="panel panel-info clearfix">
     <div class="panel-heading text-center">
         <h1>{{content.title}}</h1>
@@ -19,20 +18,29 @@
     <div class="page-footer">
         <h3 class="text-info clearfix" id="comments-number">
             <strong>评论</strong>
-            <small class="pull-right">一共有<em class="text-info">0</em>条评论</small>
+            <small class="pull-right">一共有<em class="text-info" id="comments-all-number">0</em>条评论</small>
         </h3>
         <div class="form-group clearfix">
             {% if userInfo._id %}
             <textarea class="form-control pull-left" name="messageCount" id="message-count" rows="10"></textarea>
             <input type="hidden" id="content-id" value="{{content.id}}">
-            <button class="btn btn-info pull-right" id="comments-submit">提交</button>
-            {%else%}
-            <button class="btn btn-block btn-danger">你还没有登录，请登录后在评论!</button>
-            {%endif%}
+            <button class="btn btn-info pull-right" id="comments-submit">提交</button> {%else%}
+            <button class="btn btn-block btn-danger">你还没有登录，请登录后在评论!</button> {%endif%}
         </div>
         <ul class="media-list" id="media-list">
             <!--<li class="text-warning">还没有留言!</li>-->
         </ul>
+        <nav aria-label="page">
+            <ul class="pager">
+                <li class="previous"><a href="/?category={{category}}&page={{page-1}}"><span aria-hidden="true">&larr;</span>上一页</a>
+                </li>
+                <li>
+                    <strong>{{page}}/{{pages}}</strong>
+                </li>
+                <li class="next"><a href="/?category={{category}}&page={{page+1}}"><span aria-hidden="true">&rarr;</span>下一页</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 <script src="/public/main/js/comment.js"></script>
